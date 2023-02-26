@@ -184,3 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3c6ea9e2aa98048afdf2c8477f2df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 3
+  BoxParticle: {fileID: 5518544461604556715, guid: d2424f247460b944eb8fae476b45aaa3, type: 3}
+  player: {fileID: 2728607166015086041, guid: c859fc2f9730ae147853436b5c75ce7d, type: 3}
