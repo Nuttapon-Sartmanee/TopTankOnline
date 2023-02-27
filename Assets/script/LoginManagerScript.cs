@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 using TMPro;
-//using QFSW.QC;
+using QFSW.QC;
 
 public class LoginManagerScript : MonoBehaviour
 {
@@ -11,6 +11,9 @@ public class LoginManagerScript : MonoBehaviour
     public GameObject loginPanel;
     public GameObject leaveButton;
     public GameObject scorePanel;
+
+    public GameObject hostSpawnpoint;
+    public GameObject clientSpawnpoint;
 
     private void Start()
     {
@@ -73,11 +76,8 @@ public class LoginManagerScript : MonoBehaviour
 
     private void HandleServerStarted()
     {
-        //throw new System.NotImplementedException();
     }
 
-    //private bool isApproveConnection = false;
-    //[Command()]
     public void Host()
     {
         NetworkManager.Singleton.ConnectionApprovalCallback = ApprovalCheck;
@@ -103,7 +103,6 @@ public class LoginManagerScript : MonoBehaviour
     private void ApprovalCheck(NetworkManager.ConnectionApprovalRequest request,
         NetworkManager.ConnectionApprovalResponse response)
     {
-        // The client identifier to be authenticated
         var clientId = request.ClientNetworkId;
 
         // Additional connection data defined by user code
@@ -124,20 +123,11 @@ public class LoginManagerScript : MonoBehaviour
         // The prefab hash value of the NetworkPrefab, if null the default NetworkManager player prefab is used
         response.PlayerPrefabHash = null;
 
-        // Position to spawn the player object (if null it uses default of Vector3.zero)
         response.Position = Vector3.zero;
-
-        // Rotation to spawn the player object (if null it uses the default of Quaternion.identity)
         response.Rotation = Quaternion.identity;
-
         setSpawnLocation(clientId,response);
 
-        // If response.Approved is false, you can provide a message that explains the reason why via ConnectionApprovalResponse.Reason
-        // On the client-side, NetworkManager.DisconnectReason will be populated with this message via DisconnectReasonMessage
         response.Reason = "Some reason for not approving the client";
-
-        // If additional approval steps are needed, set this to true until the additional steps are complete
-        // once it transitions from true to false the connection approval response will be processed.
         response.Pending = false;
     }
 
@@ -145,19 +135,21 @@ public class LoginManagerScript : MonoBehaviour
     {
         Vector3 spawnPos = Vector3.zero;
         Quaternion spawnRot = Quaternion.identity;
+        int randNum = Random.Range(-20, 20);
+
         if (clientID == NetworkManager.Singleton.LocalClientId)
         {
-            spawnPos = new Vector3(-2, 0, 0); spawnRot = Quaternion.Euler(0, 135, 0);
+            spawnPos = new Vector3(randNum, 0, hostSpawnpoint.transform.position.z); spawnRot = Quaternion.Euler(0, 180, 0);
         }
         else
         {
             switch (NetworkManager.Singleton.ConnectedClients.Count)
             {
                 case 1:
-                    spawnPos = new Vector3(0, 0, 0); spawnRot = Quaternion.Euler(0, 100, 0);
+                    spawnPos = new Vector3(randNum, 0, clientSpawnpoint.transform.position.z); spawnRot = Quaternion.Euler(0, 0, 0);
                     break;
                 case 2:
-                    spawnPos = new Vector3(2, 0, 0); spawnRot = Quaternion.Euler(0, 80, 0);
+                    spawnPos = new Vector3(randNum, 0, clientSpawnpoint.transform.position.z); spawnRot = Quaternion.Euler(0, 0, 0);
                     break;
             }
         }
