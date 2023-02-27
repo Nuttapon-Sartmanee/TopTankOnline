@@ -15,6 +15,7 @@ public class LoginManagerScript : MonoBehaviour
     public GameObject hostSpawnpoint;
     public GameObject clientSpawnpoint;
 
+
     private void Start()
     {
         NetworkManager.Singleton.OnServerStarted += HandleServerStarted;

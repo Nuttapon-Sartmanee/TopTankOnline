@@ -37,13 +37,13 @@ public class PlayerCameraControl : NetworkBehaviour
 
     private void changeCamera()
     {
-            if (IsCamMap)
-            {
-                CamMap.SetActive(true);
-            }
-            else
-            {
-                CamMap.SetActive(false);
-            }
+        if (IsCamMap)
+        {
+            CamMap.SetActive(true);
+        }
+        else
+        {
+            CamMap.SetActive(false);
+        }
     }
 }

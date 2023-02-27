@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1793142735710613153}
   - component: {fileID: 6708116684677254728}
   - component: {fileID: -1634160941972304813}
+  - component: {fileID: -8980796390649536655}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -90,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  rotationSpeed: 5
+  rotationSpeed: 3
   namePrefab: {fileID: 4301867318923258868, guid: a51210d34ccd90744aeeb1d596bb7487, type: 3}
   postX:
     m_InternalValue: 0
@@ -177,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4121048031150095646, guid: 6eb69042271b3b14381c34971b3b84ac, type: 3}
   bulletSpawnPoint: {fileID: 6571051655528534587}
+  cooldownTime: 0.5
 --- !u!114 &-1634160941972304813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +193,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CamPlayer: {fileID: 6588607164125376782}
   CamMap: {fileID: 5728069010621899608}
+  playerCanvas: {fileID: 5901046898306538737, guid: a51210d34ccd90744aeeb1d596bb7487, type: 3}
+--- !u!114 &-8980796390649536655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2728607166015086041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f57efb196aa8c240bf96288a1d03cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaitPanel: {fileID: 0}
 --- !u!1 &3318267811085797565
 GameObject:
   m_ObjectHideFlags: 0

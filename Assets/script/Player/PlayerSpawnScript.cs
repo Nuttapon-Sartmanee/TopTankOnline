@@ -13,10 +13,16 @@ public class PlayerSpawnScript : NetworkBehaviour
         renderers = GetComponentsInChildren<Renderer>();
     }
 
-    private void SetPlayerState(bool state)
+    public void SetPlayerState(bool state)
     {
-        foreach (var script in scripts) { script.enabled = state; }
-        foreach (var renderer in renderers) { renderer.enabled = state; }
+        foreach (var script in scripts) 
+        { 
+            script.enabled = state; 
+        }
+        foreach (var renderer in renderers) 
+        { 
+            renderer.enabled = state; 
+        }
     }
     private Vector3 GetRandPos()
     {

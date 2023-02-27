@@ -23,7 +23,7 @@ public class BoxSpawner : NetworkBehaviour
         }
     }
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     private void SpawnBoxServerRpc(int xPos ,int zPos)
     {
         Quaternion spawnRot = transform.rotation;
