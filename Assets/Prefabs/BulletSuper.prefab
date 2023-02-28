@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 2709160752091986811}
   - component: {fileID: -3105110848681182174}
   m_Layer: 0
-  m_Name: Bullet
-  m_TagString: Bullet
+  m_Name: BulletSuper
+  m_TagString: BulletSuper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b067289dfa904314f998c30ecbec0f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletspeed: 20
+  bulletspeed: 30
 --- !u!114 &-3105110848681182174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +196,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3b910feed22134a44a452c627cb2bf15, type: 2}
+  - {fileID: 2100000, guid: 368356a2f92237341abb24b6161c02d0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

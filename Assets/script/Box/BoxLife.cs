@@ -17,6 +17,11 @@ public class BoxLife : NetworkBehaviour
             SpawnBombEffect();
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.tag == "BulletSuper")
+        {
+            hp -= 3;
+            SpawnBombEffect();
+        }
         if (hp <= 0)
         {
             gameObject.GetComponent<NetworkObject>().Despawn();

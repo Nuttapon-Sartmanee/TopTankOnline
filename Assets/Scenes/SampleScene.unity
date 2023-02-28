@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxPrefab: {fileID: 2567938361363380498, guid: 699d5e6bc6c2d304b9d81fb3516c6612, type: 3}
+  boxBigPrefab: {fileID: 2567938361363380498, guid: 4177ef66c02ce3b4db859364915c4837, type: 3}
   numBoxs: 100
 --- !u!4 &74545500
 Transform:
@@ -609,6 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitPanel: {fileID: 1354093770}
+  IsActive: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,7 +781,17 @@ MonoBehaviour:
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
+      Prefab: {fileID: 4121048031150095646, guid: 57828e74cc643024ba089564877a6613, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
       Prefab: {fileID: 2567938361363380498, guid: 699d5e6bc6c2d304b9d81fb3516c6612, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 2567938361363380498, guid: 4177ef66c02ce3b4db859364915c4837, type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}

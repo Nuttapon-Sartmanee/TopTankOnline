@@ -6,9 +6,13 @@ using Unity.Netcode;
 public class uiManagerScript : NetworkBehaviour
 {
     public GameObject waitPanel;
+    public bool IsActive = false;
     public override void OnNetworkSpawn()
     {
-        OnGameStartedServerRpc();
+        if (IsActive)
+        {
+            OnGameStartedServerRpc();
+        }
     }
     [ServerRpc(RequireOwnership = false)]
     private void OnGameStartedServerRpc()
