@@ -10,13 +10,14 @@ public class PlayerControllerScript : NetworkBehaviour
     public float speed = 3.0f;
     public float rotationSpeed = 1.0f;
 
+    public GameObject TankModel;
     private Animator animator;
     private Rigidbody rb;
     private bool running;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = TankModel.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         running = false;
     }
@@ -39,7 +40,21 @@ public class PlayerControllerScript : NetworkBehaviour
                     animator.SetBool("Walking", true);
                 }
             }
+
+            if (verticalInput < -0.01f)
+            {
+                float translation = -verticalInput * speed;
+                translation *= Time.fixedDeltaTime;
+                rb.MovePosition(rb.position - this.transform.forward * translation);
+
+                if (!running)
+                {
+                    running = true;
+                    animator.SetBool("Walking", true);
+                }
+            }
         }
+
         else if (running)
         {
             running = false;
